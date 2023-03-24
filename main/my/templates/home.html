@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block left %}
+<div class="container ">
+    <div class="row">
+        <div class="col-4 ">
+            <h2 class="text-center alert alert-success">Registration</h2>
+            <form action="" method="post" class="form-label">
+                {% csrf_token %}
+                {% for fm in fm %}
+                {{fm.label_tag}}{{fm}}{{fm.errors|striptags}}
+                {% endfor %}
+                <input type="submit" value="Submit" class="mt-3 btn btn-outline-success w-100">
+            </form>
+
+        </div>
+        <div class="col-7 offset-sm-1 ">
+            <h2 class="text-center alert alert-success">Registration details</h2>
+            {% if data %}
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col" >Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Action</th>
+
+                  </tr>
+                </thead>              
+                <tbody>                   
+                    {% for data in data %}
+                  <tr>
+
+                    <th scope="row">{{data.id}}</th>
+                    <td>{{data.name}}</td>
+                    <td>{{data.email}}</td>
+                    <td>{{data.password}}</td>
+                    <td>
+                        <a href="{% url 'update' data.id %}" class="btn btn-warning btn-sm mb-2">Update</a>
+                        <form action="{% url 'delete' data.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                        </form>
+                    </td>
+
+
+                  </tr>
+                    {% endfor %}
+
+                  <tr>
+                </tbody>
+              </table>
+              {% else %}
+              <h2 class="text-center alert alert-success">No record Found</h2>
+              {% endif %}
+        </div>
+    </div>
+</div>
+<a href="/logout/" class="btn btn-outline-danger m-4">Logout</a>
+{% endblock left %}

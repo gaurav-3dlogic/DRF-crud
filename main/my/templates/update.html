@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block left %}
+<div class="container col-sm-7">
+    <h2 class="text-center alert alert-warning mb-4">Update student details</h2>
+    <form action="" method="post" >
+        {% csrf_token %}
+        {% for fm in fm %}
+        {{fm.label_tag}}{{fm}}{{fm.errors|striptags}}
+        {% endfor %}
+        <input type="submit" value="Update" class="btn btn-outline-success p-2 mt-3 w-100">
+    </form>
+</div>
+
+{% endblock left %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css/all.min.css" %}">
+
+</head>
+<style>
+</style>
+<body>
+    <div class="container col-sm-11  ">
+        <h2 class="text-center alert alert-danger mt-2">DRF Crud Project with permission and authentication</h2>
+    </div>
+    {% block left %}
+    {% endblock left %}
+
+<script src="{% static "js/all.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/jquery.js" %}"></script>
+<script src="{% static "js/popper.js" %}"></script>
+
+</body>
+</html>
